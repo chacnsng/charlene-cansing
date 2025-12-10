@@ -1,17 +1,6 @@
 #!/bin/sh
 set -e
 
-# Debug: Check if build assets exist
-echo "=== Checking build assets ==="
-if [ -f /var/www/html/public/build/manifest.json ]; then
-    echo "✓ manifest.json found"
-    cat /var/www/html/public/build/manifest.json
-else
-    echo "✗ manifest.json NOT FOUND"
-    ls -la /var/www/html/public/build/ 2>/dev/null || echo "build directory does not exist"
-fi
-echo "==========================="
-
 # Create storage directories if they don't exist
 mkdir -p /var/www/html/storage/logs
 mkdir -p /var/www/html/storage/framework/cache
