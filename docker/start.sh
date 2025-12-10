@@ -1,6 +1,17 @@
 #!/bin/sh
 set -e
 
+# Debug: Check if build assets exist
+echo "=== Checking build assets ==="
+if [ -f /var/www/html/public/build/manifest.json ]; then
+    echo "✓ manifest.json found"
+    cat /var/www/html/public/build/manifest.json
+else
+    echo "✗ manifest.json NOT FOUND"
+    ls -la /var/www/html/public/build/ 2>/dev/null || echo "build directory does not exist"
+fi
+echo "==========================="
+
 # Create storage directories if they don't exist
 mkdir -p /var/www/html/storage/logs
 mkdir -p /var/www/html/storage/framework/cache
@@ -16,9 +27,11 @@ touch /var/www/html/database/database.sqlite
 chown -R www-data:www-data /var/www/html/storage
 chown -R www-data:www-data /var/www/html/bootstrap/cache
 chown -R www-data:www-data /var/www/html/database
+chown -R www-data:www-data /var/www/html/public/build 2>/dev/null || true
 chmod -R 775 /var/www/html/storage
 chmod -R 775 /var/www/html/bootstrap/cache
 chmod 664 /var/www/html/database/database.sqlite
+chmod -R 755 /var/www/html/public/build 2>/dev/null || true
 
 # Handle Render's PORT environment variable
 if [ -n "$PORT" ]; then
