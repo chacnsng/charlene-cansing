@@ -20,6 +20,7 @@ RUN apk add --no-cache \
     nginx \
     supervisor \
     sqlite \
+    sqlite-dev \
     libzip-dev \
     zip \
     unzip \
