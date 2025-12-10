@@ -6,9 +6,15 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
+# Copy all source files needed for Tailwind CSS to scan classes
 COPY vite.config.js ./
 COPY resources ./resources
 COPY public ./public
+
+# Create stub directories for @source paths that reference vendor/storage
+# This prevents Tailwind from failing when scanning these paths
+RUN mkdir -p vendor/laravel/framework/src/Illuminate/Pagination/resources/views \
+    && mkdir -p storage/framework/views
 
 RUN npm run build
 
