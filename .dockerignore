@@ -8,8 +8,9 @@
 
 # Environment files (will be set via Render)
 .env
-.env.*
-!.env.example
+.env.local
+.env.production
+.env.staging
 
 # Development and testing
 /tests
@@ -31,15 +32,11 @@ phpunit.xml
 # Docker
 docker-compose*.yml
 
-# Logs and cache
-/storage/logs/*
-!/storage/logs/.gitignore
-/storage/framework/cache/*
-!/storage/framework/cache/.gitignore
+# Logs and cache (content only, keep directory structure)
+/storage/logs/*.log
+/storage/framework/cache/data
 /storage/framework/sessions/*
-!/storage/framework/sessions/.gitignore
-/storage/framework/views/*
-!/storage/framework/views/.gitignore
+/storage/framework/views/*.php
 
 # Documentation
 README.md

@@ -31,6 +31,9 @@ if [ -z "$APP_KEY" ]; then
     php artisan key:generate --force
 fi
 
+# Create storage symlink for public file access
+php artisan storage:link --force 2>/dev/null || true
+
 # Clear and cache config for production
 php artisan config:clear
 php artisan config:cache
