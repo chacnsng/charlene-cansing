@@ -1,0 +1,50 @@
+# Dependencies
+/node_modules
+/vendor
+
+# Build artifacts
+/public/build
+/public/hot
+
+# Environment files (will be set via Render)
+.env
+.env.*
+!.env.example
+
+# Development and testing
+/tests
+/.phpunit.cache
+phpunit.xml
+.phpunit.result.cache
+
+# IDE and editors
+/.idea
+/.vscode
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+docker-compose*.yml
+
+# Logs and cache
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+
+# SQLite database (will be created at runtime)
+/database/*.sqlite
