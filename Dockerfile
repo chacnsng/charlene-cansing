@@ -94,6 +94,14 @@ ENV SESSION_DRIVER=database
 ENV CACHE_STORE=database
 ENV QUEUE_CONNECTION=database
 
+# Mail configuration for Gmail SMTP
+ENV MAIL_MAILER=smtp
+ENV MAIL_HOST=smtp.gmail.com
+ENV MAIL_PORT=587
+ENV MAIL_ENCRYPTION=tls
+ENV MAIL_FROM_NAME="Charlene Cansing"
+# MAIL_USERNAME, MAIL_PASSWORD, and MAIL_FROM_ADDRESS should be set in Render dashboard
+
 # Render uses PORT environment variable
 EXPOSE 80
 
