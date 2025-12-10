@@ -26,8 +26,8 @@ class ContactController extends Controller
         // Store message in database
         Contact::create($validated);
 
-        // Send email notification
-        Mail::to('charlene.cansingg@gmail.com')->send(new ContactMail($validated));
+        // Queue email notification (processed by queue worker in background)
+        Mail::to('charlene.cansingg@gmail.com')->queue(new ContactMail($validated));
 
         return back()->with('success', 'Your message has been sent successfully!');
     }
